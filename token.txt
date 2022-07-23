@@ -1,0 +1,1 @@
+MAP_KEY = pk.ae50f0a6ba28ed2d0ceeb5792d27f9bb
