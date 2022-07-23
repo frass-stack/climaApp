@@ -1,4 +1,4 @@
-
+const axios = require('axios');
 
 
 class Busquedas {
@@ -10,11 +10,15 @@ class Busquedas {
         //TODO: Leer db si existe
     }
 
-    async ciudad(lugar = ''){
-        //peticion http
-        console.log(lugar);
-
-        return []; //retornar los lugares que coincidan con el lugar ingresado por el usuario.
+    async ciudad(lugar = '') {
+        try {
+            //peticion http
+            const response = await axios.get('https://reqres.in/api/users?page=2');
+            console.log(response.data.data);
+            //return []; //retornar los lugares que coincidan con el lugar ingresado por el usuario.
+        } catch (error) {
+            return [];
+        }
     }
 }
 
