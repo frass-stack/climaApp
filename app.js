@@ -13,11 +13,12 @@ const main = async () => {
 
         switch (opcion) {
             case 1:
-                //Mostrar mensaje para que el usuario escriba
-                const lugar = await leerInput('Ciudad: ');
-                await busquedas.ciudad(lugar);
-
+                //Mostrar mensaje para que el usuario escriba el termino/lugar
+                const termino = await leerInput('Ciudad: ');
+                
                 //Buscar los lugares
+                const lugares = await busquedas.ciudad(termino);
+                console.log(lugares);
 
                 //Seleccionar el lugar
 
