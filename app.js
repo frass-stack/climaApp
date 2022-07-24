@@ -1,4 +1,4 @@
-const { inquirerMenu, inquirerPausa, leerInput } = require("./helpers/inquirer");
+const { inquirerMenu, inquirerPausa, leerInput, listadoLugares } = require("./helpers/inquirer");
 const Busquedas = require("./models/busquedas");
 
 
@@ -18,17 +18,20 @@ const main = async () => {
                 
                 //Buscar los lugares
                 const lugares = await busquedas.ciudad(termino);
-                console.log(lugares);
+                // console.log(lugares);
 
                 //Seleccionar el lugar
+                const id = await listadoLugares(lugares);
+                //console.log({id});
+                const seleccion = lugares.find(lugar => id === lugar.id);
 
                 //Datos del clima de la ciudad
 
                 //Mostrar resultados
                 console.log('\nInformacion del lugar\n'.green);
-                console.log('Ciudad: ')
-                console.log('Latitud: ')
-                console.log('Longitud: ')
+                console.log('Ciudad: ' + seleccion.nombre)
+                console.log('Latitud: ' + seleccion.latitud)
+                console.log('Longitud: ' + seleccion.longitud)
                 console.log('Temperatura: ')
                 console.log('Temp. Minima: ')
                 console.log('Temp. Maxima: ')
